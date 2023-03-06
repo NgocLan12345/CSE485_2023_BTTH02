@@ -60,11 +60,11 @@
                     </div>
 
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Thể loại</span>
+                    <span class="input-group-text" id="lblCatName">Thể loại</span>
                         <select name="category_id" id="">
-                            <?php foreach($categories as $){ ?>
-                                <option value="<?= $each->getMaTLoai()?>">
-                                    <?= $each->getTenTLoai()?>
+                            <?php foreach($categories as $each){ ?>
+                                <option value="<?= $each->getId()?>">
+                                    <?= $each->getName()?>
                                 </option>
                            <?php } ?>
                             
