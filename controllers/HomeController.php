@@ -1,5 +1,9 @@
 <?php
+require_once("configs/DBConnection.php");
 include("services/ArticleService.php");
+include("services/AuthorService.php");
+include("services/CategoryService.php");
+include("services/MemberService.php");
 class HomeController{
     // Hàm xử lý hành động index
     public function index(){
@@ -9,4 +13,16 @@ class HomeController{
         // Nhiệm vụ 2: Tương tác với View
         include("views/home/index.php");
     }
+    public function index_admin(){
+        // Nhiệm vụ 1: Tương tác với Services/Models
+
+        $categoryService = new CategoryService();
+        $category = $categoryService->countCategory();
+        
+        $memberService= new MemberService();
+        $member = $memberService->countMember();
+        // Nhiệm vụ 2: Tương tác với View
+        include("views/admin/index.php");
+    }
 }
+?>
