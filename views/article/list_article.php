@@ -22,19 +22,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                        <a class="nav-link" aria-current="page" href="?controller=home&action=index_admin">Trang chủ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        <a class="nav-link" href="?controller=home&action=index">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="category.php">Thể loại</a>
+                        <a class="nav-link " href="?controller=category&action=list">Thể loại</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="author.php">Tác giả</a>
+                        <a class="nav-link" href="?controller=Author&action=list">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
+                        <a class="nav-link active fw-bold" href="?controller=Article&action=list">Bài viết</a>
                     </li>
                 </ul>
                 </div>
@@ -66,28 +66,27 @@
                 <tbody> 
                 <?php
                     foreach ($articles as $each) {
-                            ?>
-                                <tr>
-                                    <th scope="row"><?= $each->getMaBViet() ?></th>
-                                    <td><?= $each->getTieuDe() ?></td>
-                                    <td><?= $each->getTenBHat() ?></td>
-                                    <td><?= $each->getTenTLoai() ?></td>
-                                    <td><?= $each->getTenTGia() ?></td>
-                                    <td><?= $each->getTomTat() ?></td>
-                                    <td><?= $each->getNoiDung() ?></td>
-                                    <td><?= $each->getNgayViet() ?></td>
-                                    
-                                    <td> <div style="width:150px"><img src="assets/images/songs/<?= $article->getHinhAnh() ?>" alt="<?= $article->getHinhAnh() ?>" style="width: 100%;"></div></td>
-                                    <td>
-                                        <a href="?controller=article&action=edit_article&id=<?= $article->getMaBViet() ?>"><i
-                                        class="fa-solid fa-pen-to-square"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href="?controller=article&action=delete_article&id=<?= $article->getMaBViet() ?>"><i
-                                        class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                            <?php
+                        ?>
+                            <tr>
+                                <th scope="row"><?= $each->getMaBViet() ?></th>
+                                <td><?= $each->getTieuDe() ?></td>
+                                <td><?= $each->getTenBHat() ?></td>
+                                <td><?= $each->getTenTLoai() ?></td>
+                                <td><?= $each->getTenTGia() ?></td>
+                                <td><?= $each->getTomTat() ?></td>
+                                <td><?= $each->getNoiDung() ?></td>
+                                <td><?= $each->getNgayViet() ?></td>
+                                <td> <div style="width:150px"><img src="assets/images/songs/<?= $article->getHinhAnh() ?>" alt="<?= $article->getHinhAnh() ?>" style="width: 100%;"></div></td>
+                                <td>
+                                    <a href="?controller=article&action=edit_article&id=<?= $article->getMaBViet() ?>"><i
+                                    class="fa-solid fa-pen-to-square"></i></a>
+                                </td>
+                                <td>
+                                    <a href="?controller=article&action=delete_article&id=<?= $article->getMaBViet() ?>"><i
+                                    class="fa-solid fa-trash"></i></a>
+                                 </td>
+                            </tr>
+                        <?php
                     }
                 ?>
     </main>      

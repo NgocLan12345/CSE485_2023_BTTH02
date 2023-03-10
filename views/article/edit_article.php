@@ -45,7 +45,7 @@
     <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
     <div class="row">
             <div class="col-sm">
-                <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết</h3>
+                <h3 class="text-center text-uppercase fw-bold">Sửa bài viết</h3>
                 <form action="?controller=article&action=add_process" method="post" enctype="multipart/form-data">
      
                     <div class="input-group mt-3 mb-3">
@@ -63,17 +63,26 @@
                         <select name="category_id" id="">
                             <?php foreach($categories as $each){ ?>
                                 <option value="<?= $each->getMaTLoai()?>">
-                                    <?= $each->getTenTLoai()?>
+                                <?php
+                                    if ($article->getMaTLoai()== $category->getMaBViet()){ ?>
+                                    selected
+                                    <?php } ?>
+                                    <?= $each->getTenBHat()?>
                                 </option>
-                           <?php } ?>
+                           <?php 
+                        } ?>
                         </select>
-
                     <div class="input-group mt-3 mb-3">
                     <span class="input-group-text" id="lblCatName">Tác giả</span>
                         <select name="author_id" id="">
                         <?php foreach($authors as $each){ ?>
                                 <option value="<?= $each->getMaTGia()?>">
-                                    <?= $each->getTenTGia()?>
+                                <?php
+                                     if ($article->getMaTGia()== $author->getMaBViet()){ ?>
+                                     selected
+                                     <?php } ?>>
+                                <?= $author->getName()?>
+                                    <?= $each->getTenBHat()?>
                                 </option>
                            <?php } ?>
                         </select> 
@@ -95,7 +104,7 @@
                     </div>
 
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblartName">Thêm hình ảnh</span>
+                        <span class="input-group-text" id="lblartName">Sửa hình ảnh</span>
                         <input type="file" class="form-control " name="image" accept="image/*" id="image"><br> 
                         <input type="submit" class="form-control " value="upload">
                     </div>
@@ -108,13 +117,12 @@
             </div>
         </div>
     </main>
-
-    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
+    <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2"
+        style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous">
-    </script>
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
 </html>
